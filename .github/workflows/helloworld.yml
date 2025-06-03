@@ -14,3 +14,11 @@ jobs:
         steps:
             - name: "print hello world"
               run: echo "Hello Round World"
+
+            - name: "print date"
+              run: date
+            - name: "print systemconfiguration" 
+              run: uname -a
+               
+
+
