@@ -1,0 +1,29 @@
+name: "multi event pipeline"  #Name of pipeline
+
+# control when the actions will run. riggers the workflow on push somethin to master
+
+on:  #Event : whenever push is made on master
+    push:
+        branches:
+            - master
+            - test
+    pull_request: #Event : whenever pull is made on master
+        branches:
+            -master
+
+
+jobs: #job1
+    onpush:     #jobname
+        if: github.event_name == 'push'
+        runs-on: ubuntu-latest
+        steps: #steps to be executed
+            - name: "Running on master/test push" #step 1
+              run: echo "Running on master/test push"
+
+    onpull: #job2
+        runs-on: ubuntu-latest
+        if: github.event_name == 'pull'
+        steps: #steps to be executed
+            - name: "Running on master/test pull" #step1
+              run: echo "Running on master/test pull"
+
