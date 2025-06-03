@@ -9,7 +9,7 @@ on:  #Event : whenever push is made on master
             - test
     pull_request: #Event : whenever pull is made on master
         branches:
-            -master
+            - master
 
 
 jobs: #job1
@@ -22,7 +22,7 @@ jobs: #job1
 
     onpull: #job2
         runs-on: ubuntu-latest
-        if: github.event_name == 'pull'
+        if: github.event_name == 'pull_request'
         steps: #steps to be executed
             - name: "Running on master/test pull" #step1
               run: echo "Running on master/test pull"
