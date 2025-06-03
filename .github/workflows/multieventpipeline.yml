@@ -10,6 +10,8 @@ on:  #Event : whenever push is made on master
     pull_request: #Event : whenever pull is made on master
         branches:
             - master
+        types:
+            - closed    
     workflow_dispatch:        
 
 
@@ -27,6 +29,13 @@ jobs: #job1
         steps: #steps to be executed
             - name: "Running on master/test pull" #step1
               run: echo "Running on master/test pull"
+    onpullclosed:
+        if: github.event_name == 'pull_request' && github.event_name == 'closed'
+        runs-on: ubuntu-latest
+        steps: #steps to be executed
+            - name: "Running on master/test pull" #step1
+              run: echo "Running on master/test pull"
+
     onWorkflw:
         runs-on: ubuntu-latest
         if: github.event_name == 'workflow_dispatch'
