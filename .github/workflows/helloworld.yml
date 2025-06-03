@@ -1,0 +1,16 @@
+name: "Hello world workflow"
+
+# control when the actions will run. riggers the workflow on push somethin to master
+
+on:
+    push:
+        branches:
+            - master
+            - production
+
+jobs:
+    hello_world:
+        runs-on: ubuntu-latest
+        steps:
+            - name: "print hello world"
+              run: echo "Hello Round World"
