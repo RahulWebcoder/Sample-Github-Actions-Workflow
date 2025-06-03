@@ -20,7 +20,7 @@ jobs:
               run: echo "Running on master/test push"
 
     onpull:
-        runs-on: ubunto-latest
+        runs-on: ubuntu-latest
         steps: #steps to be executed
             - name: "Running on master/test pull" #step1
               run: echo "Running on master/test pull"
