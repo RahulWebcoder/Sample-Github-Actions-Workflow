@@ -12,15 +12,17 @@ on:  #Event : whenever push is made on master
             -master
 
 
-jobs:
+jobs: #job1
     onpush:     #jobname
+        if: github.event_name == 'push'
         runs-on: ubuntu-latest
         steps: #steps to be executed
             - name: "Running on master/test push" #step 1
               run: echo "Running on master/test push"
 
-    onpull:
+    onpull: #job2
         runs-on: ubuntu-latest
+        if: github.event_name == 'pull'
         steps: #steps to be executed
             - name: "Running on master/test pull" #step1
               run: echo "Running on master/test pull"
